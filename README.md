@@ -1,3 +1,3 @@
 # js-datavisualisation-challenge
 
-[view the repport](https://pierreweets.github.io/js-datavisualisation-challenge)
+[view the report](https://pierreweets.github.io/js-datavisualisation-challenge/index.html)
