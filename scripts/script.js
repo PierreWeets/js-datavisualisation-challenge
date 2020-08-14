@@ -1,27 +1,28 @@
-function addCanvas(elementRef, index) {
-    let idName = "myChart";
-    let canvas = document.createElement("canvas");
-    canvas.setAttribute("id", idName + index);
-    elementRef.before(canvas);
-    return canvas.getAttribute("id");
-}
-// const addCanvas = (elementRef, index, height, caption) => {
+// function addCanvas(elementRef, index) {
+//     let idName = "myChart";
 //     let canvas = document.createElement("canvas");
-//     canvas.setAttribute("id", "myChart" + index);
-//     canvas.setAttribute("height", height);
+//     canvas.setAttribute("id", idName + index);
 //     elementRef.before(canvas);
-//     if (caption != undefined) {
-//       let newElement = document.createElement("p");
-//       newElement.setAttribute(
-//         "style",
-//         "text-align: center; font-size: 14px; font-style: italic"
-//       );
-//       let newContent = document.createTextNode(caption);
-//       newElement.appendChild(newContent);
-//       elementRef.before(newElement);
-//     }
 //     return canvas.getAttribute("id");
-//   };
+// }
+
+const addCanvas = (elementRef, index, height, caption) => {
+    let canvas = document.createElement("canvas");
+    canvas.setAttribute("id", "myChart" + index);
+    canvas.setAttribute("height", height);
+    elementRef.before(canvas);
+    if (caption != undefined) {
+      let newElement = document.createElement("p");
+      newElement.setAttribute(
+        "style",
+        "text-align: center; font-size: 14px; font-style: italic"
+      );
+      let newContent = document.createTextNode(caption);
+      newElement.appendChild(newContent);
+      elementRef.before(newElement);
+    }
+    return canvas.getAttribute("id");
+  };
 
 function createChart(canvasID, chartType, labelsArray, dataSetJSONArray, optionsJSON){
     let charRef = new Chart(document.getElementById(canvasID).getContext("2d"), {

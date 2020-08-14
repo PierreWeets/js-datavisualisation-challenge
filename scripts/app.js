@@ -137,7 +137,7 @@ for (i = 0; i < countryLabel1.length; i++) {
 }
 
 //datasets1.forEach(el => console.log("before sort : " + el.label));
-//sort the datasets1 on the label : compare the label of 2 object DataElement , invert them if the returnes value = 1, else do nothing
+//sort the datasets1 on the label : compare the labels of 2 objects DataElement , invert them if the returned value = 1, else do nothing
 datasets1.sort( (a,b) => (a.label > b.label)?1:-1);
 //datasets1.forEach(el => console.log("after sort : " + el.label));
 
@@ -150,6 +150,9 @@ for (i = 0; i < countryLabel2.length; i++) {
   );
   datasets2.push(newElement);
 }
+
+//sort the datasets2 on the label : compare the labels of 2 objects DataElement , invert them if the returned value = 1, else do nothing
+datasets2.sort( (a,b) => (a.label > b.label)?1:-1);
 
 // Filter which countries to display by default
 
@@ -185,6 +188,13 @@ let options1 = {
       fontSize: 16,
     },
   },
+  scales: {
+    yAxes: [{
+        ticks: {
+            beginAtZero:true //begin the YAxis at 0
+        }
+    }]
+  }
 };
 
 let data2 = {
@@ -205,6 +215,13 @@ let options2 = {
       fontSize: 16,
     },
   },
+  scales: {
+    yAxes: [{
+        ticks: {
+            beginAtZero:true//begin the YAxis at 0
+        }
+    }]
+  }
 };
 
 // Chart declaration
