@@ -37,12 +37,12 @@ const instructions =
 // };
 addCanvas(table1, 1, 200, instructions);
 addCanvas(table2, 2, 200, instructions);
-addCanvas(table3, 3);
 
 // Create chartLabels
 
 let chartLabels1 = table1Row[0].innerText.split("\t");
 chartLabels1 = chartLabels1.splice(2, chartLabels1.length);
+
 
 let chartLabels2 = table2Head.innerText.split("\t");
 chartLabels2 = chartLabels2.splice(2, chartLabels2.length);
@@ -135,6 +135,11 @@ for (i = 0; i < countryLabel1.length; i++) {
   );
   datasets1.push(newElement);
 }
+
+//datasets1.forEach(el => console.log("before sort : " + el.label));
+//sort the datasets1 on the label : compare the label of 2 object DataElement , invert them if the returnes value = 1, else do nothing
+datasets1.sort( (a,b) => (a.label > b.label)?1:-1);
+//datasets1.forEach(el => console.log("after sort : " + el.label));
 
 for (i = 0; i < countryLabel2.length; i++) {
   let newElement = new dataElement(
